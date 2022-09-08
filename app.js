@@ -5,7 +5,9 @@ const bodyParser = require('body-parser');
 //! Modules in the core structure of Node
 //! my own created files
 const pageRoute = require('./routes/pageRoute');
-const courseRoute = require('./routes/courseRoute')
+const courseRoute = require('./routes/courseRoute');
+const categoryRoute = require('./routes/categoryRoute');
+const userRoute = require('./routes/userRoute');
 
 
 
@@ -37,6 +39,8 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 //* ROUTES
 app.use('/', pageRoute);
 app.use('/courses', courseRoute);
+app.use('/categories', categoryRoute);
+app.use('/users', userRoute);
 
 
 
