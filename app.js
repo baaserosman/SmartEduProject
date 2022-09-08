@@ -1,6 +1,7 @@
 //! 3rd party modules
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 //! Modules in the core structure of Node
 //! my own created files
 const pageRoute = require('./routes/pageRoute');
@@ -30,6 +31,8 @@ app.set('view engine', 'ejs');
 
 //* MIDDLEWAREs
 app.use(express.static('public'));
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 //* ROUTES
 app.use('/', pageRoute);
