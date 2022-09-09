@@ -20,17 +20,17 @@ exports.createUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-
+    // await User.findOne({ email }, (err, user) => { //! Bu şekilde yazınca "Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client" hatası veriyor.
     const user = await User.findOne({ email });
     if (user) {
       bcrypt.compare(password, user.password, (err, same) => {
-      if (same) {
-        // USER SESSION
-        req.session.userID = user._id;
+        if (same) {
+          // USER SESSION
+          req.session.userID = user._id;
           res.status(200).redirect('/');
         }
       });
-    };
+    }
   } catch (error) {
     res.status(400).json({
       status: 'fail',
@@ -39,14 +39,8 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-
-// await User.findOne({ email }, (err, user) => { //! Bu şekilde yazınca "Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client" hatası veriyor.
-//   if (user) {
-//     bcrypt.compare(password, user.password, (err, same) => {
-//       if (same) {
-//         // USER SESSION
-//         res.status(200).send('YOU ARE LOGGED IN');
-//       }
-//     });
-//   }
-// });
+exports.logoutUser = (req, res) => {
+  req.session.destroy( () => {
+    res.redirect('/')
+  })
+}
