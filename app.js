@@ -1,6 +1,7 @@
 //! 3rd party modules
 const express = require('express');
 const mongoose = require('mongoose');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 //! Modules in the core structure of Node
 //! my own created files
@@ -31,12 +32,29 @@ mongoose
 //* TEMPLATE ENGINE
 app.set('view engine', 'ejs');
 
+//* GLOBAL VARIABLE
+
+global.userIN = null;
+
 //* MIDDLEWAREs
+
 app.use(express.static('public'));
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(
+  session({
+    secret: 'my_keyboard_cat',
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 //* ROUTES
+
+app.use('*', (req, res, next) => {    // Kullanıcı oturum kontrolü.
+  userIN = req.session.userID;
+  next();
+});
 app.use('/', pageRoute);
 app.use('/courses', courseRoute);
 app.use('/categories', categoryRoute);
