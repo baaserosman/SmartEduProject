@@ -37,3 +37,15 @@ exports.loginUser = async (req, res) => {
     });
   }
 };
+
+
+// await User.findOne({ email }, (err, user) => { //! Bu şekilde yazınca "Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client" hatası veriyor.
+//   if (user) {
+//     bcrypt.compare(password, user.password, (err, same) => {
+//       if (same) {
+//         // USER SESSION
+//         res.status(200).send('YOU ARE LOGGED IN');
+//       }
+//     });
+//   }
+// });
