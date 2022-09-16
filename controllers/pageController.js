@@ -44,19 +44,19 @@ exports.sendEmail = async (req, res) => {
   `;
 
   let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true, //* true for 465, false for other ports
     auth: {
-      user: "baaser.osman@gmail.com", //* gmail account
-      pass: "yguhasljdqgweyzj", //* gmail password
+      user: 'bascher.dev@gmail.com', //* gmail account
+      pass: 'wiimiohfrxbsasqu', //* gmail password
     },
   });
 
   //* send mail with defined transport object
   let info = await transporter.sendMail({
     from: '"Smart EDU Contact Form" <baaser.osman@gmail.com>', //* sender address
-    to: 'demircelik454@gmail.com', //* list of receivers
+    to: req.body.email, //* list of receivers
     subject: 'Smart EDU Contact Form New Message', //* Subject line
     // text: 'Hello world?', //* plain text body
     html: outputMessage,  //* html body
