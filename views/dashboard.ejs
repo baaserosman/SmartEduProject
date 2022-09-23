@@ -330,7 +330,7 @@
 									<tr>
 									<th scope="col">ID#</th>
 									<th scope="col">Name</th>
-									<th scope="col">Add</th>
+									<th scope="col">Description</th>
 									<th scope="col">Delete</th>
 									</tr>
 								</thead>
@@ -339,10 +339,7 @@
 									<tr>
 									<th scope="row"><%=categories[i]._id %></th>
 									<td><%=categories[i].name %></td>
-									<td><button class="btn btn-lg btn-warning rounded-0 text-white" href="#"
-											data-toggle="modal" data-target="#addCategory"><span>ADD</span>
-										</button>
-									</td>
+									<td>Lorem Ipsum...</td>
 									<td><a href="/categories/<%= categories[i]._id %>?_method=DELETE" 
 									onclick="return confirm('ARE YOU SURE')"
 									class="btn btn-danger rounded-0 text-white"><span>DELETE</span></a></td>
@@ -350,9 +347,13 @@
 								<% } %>
 								</tbody>
 							</table>
-
+											
 						</div><!-- end row -->
-
+						<div class="row mt-5 display-flex justify-content-center">
+								<button class="btn btn-lg btn-light btn-radius btn-brd grd1" href="#"
+											data-toggle="modal" data-target="#addCategory"><span>ADD NEW CATEGORY</span>
+							</button>
+						</div>
 
 					</div><!-- end container -->
 				</div><!-- end section -->
