@@ -62,7 +62,7 @@ app.use(methodOverride('_method', { methods: ['POST', 'GET'] }));
 
 //* ROUTES
 
-app.use('*', (req, res, next) => {    // Kullanıcı oturum kontrolü.
+app.use('*', (req, res, next) => {    //! Kullanıcı oturum kontrolü.
   userIN = req.session.userID;
   next();
 });
