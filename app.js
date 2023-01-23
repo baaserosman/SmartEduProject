@@ -14,7 +14,6 @@ const categoryRoute = require('./routes/categoryRoute');
 const userRoute = require('./routes/userRoute');
 
 
-
 const app = express();
 
 //* CONNECT DB
