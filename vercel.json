@@ -1,6 +1,10 @@
 {
   "version": 2,
-  "name": "smart-edu",
-  "builds": [{ "src": "app.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/app.js" }]
+  "builds": [
+    {
+    
+      "src": "index.js",
+      "use": "@now/node"
+    }
+  ]
 }

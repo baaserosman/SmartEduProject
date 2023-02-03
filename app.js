@@ -78,3 +78,6 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`App started on port ${port}`);
 });
+
+// Export the Express API
+module.exports = app;
