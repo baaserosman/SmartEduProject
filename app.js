@@ -19,7 +19,7 @@ const app = express();
 //* CONNECT DB
 mongoose
   .connect(
-    'mongodb+srv://osman:bv7YhaURH5cYJ6vL@cluster0.ttgy60y.mongodb.net/smart-edu?retryWrites=true&w=majority'
+    'mongodb+srv://bascher:9WycwGLAu78hO7GH@cluster0.acqsays.mongodb.net/my-smart-edu?retryWrites=true&w=majority'
     // , {
     //   useNewUrlParser: true,
     //   useUnifiedTopology: true,
